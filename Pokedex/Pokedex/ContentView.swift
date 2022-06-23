@@ -10,14 +10,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var vm = ViewModel()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .onAppear {
-                PokemonSelectedApi().gerData(url: "https://pokeapi.co/api/v2/pokemon/2/") { url in
-                    print(url)
-                }
-            }
+        VStack {
+            Text("Hello, world!")
+        }
+
     }
 }
 
