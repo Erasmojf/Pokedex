@@ -18,14 +18,13 @@ extension Bundle {
         guard let data = try? Data(contentsOf: url) else {
             fatalError("Could not load \(file) from bundle.")
         }
-        
-        let decoder = JSONDecoder()
-        
-        guard let loadedData = try? decoder.decode(T.self, from: data) else {
+
+        do {
+            let loadedData = try JSONDecoder().decode(T.self, from: data)
+            return loadedData
+        } catch {
             fatalError("Could not decode \(file) from bundle.")
         }
-        
-        return loadedData
     }
     
     func fetchData<T: Decodable>(url: String, model: T.Type, completion: @escaping(T) -> (),

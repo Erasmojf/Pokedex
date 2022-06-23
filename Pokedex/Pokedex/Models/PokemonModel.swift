@@ -16,11 +16,30 @@ struct PokemonPage: Codable {
 }
 
 struct Pokemon: Codable, Identifiable, Equatable {
-    var id = UUID()
+    let id: UUID
     let name: String
     let url: String
-    
-    static var samplePokemon = Pokemon(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
+
+    static var samplePokemon = Pokemon(id: UUID(), name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon/1/")
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case url
+        case id
+    }
+
+    init(id: UUID, name: String, url: String) {
+        self.id = id
+        self.name = name
+        self.url = url
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = UUID()
+        name = try values.decode(String.self, forKey: .name)
+        url = try values.decode(String.self, forKey: .url)
+    }
 }
 
 
