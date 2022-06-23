@@ -63,7 +63,7 @@
 			children = (
 				F3AA50BD28635CCC00018317 /* PokedexApp.swift */,
 				F3B5D41C2864A807008DD832 /* Helpers */,
-				F3AA50BF28635CCC00018317 /* ContentView.swift */,
+				F3B5D42C2864E8F9008DD832 /* Views */,
 				F3B5D4222864BBDF008DD832 /* ViewModels */,
 				F3B5D41F2864B626008DD832 /* Models */,
 				F3B5D4252864BFF9008DD832 /* Managers */,
@@ -120,6 +120,14 @@
 				F3B5D4262864C01C008DD832 /* PokemonManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		F3B5D42C2864E8F9008DD832 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F3AA50BF28635CCC00018317 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
