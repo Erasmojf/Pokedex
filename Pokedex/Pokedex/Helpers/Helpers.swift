@@ -39,6 +39,7 @@ extension Bundle {
                 }
                 return
             }
+            
             do {
                 let serverData = try JSONDecoder().decode(T.self, from: data)
                 completion(serverData)
